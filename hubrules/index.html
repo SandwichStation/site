@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rule 1 - Age Requirement - SandwichStation</title>
+    <title>Hub Rules - SandwichStation</title>
     <style>
         :root {
             --color-section-bg: #212126;
@@ -17,6 +17,15 @@
             --color-border: #525252;
             --color-warning-yellow: #ffc107;
             --color-warning-bg: #3d3a20;
+            --color-danger-red: #ff4444;
+            --color-danger-bg: #3d2020;
+            /* Severity Colors */
+            --color-severity-high: #ff4444;
+            --color-severity-high-bg: #3d2020;
+            --color-severity-medium: #ff9800;
+            --color-severity-medium-bg: #3d2e1a;
+            --color-severity-low: #4caf50;
+            --color-severity-low-bg: #1a3d20;
         }
         
         body {
@@ -62,6 +71,24 @@
             font-weight: normal;
         }
         
+        /* Red Warning Banner */
+        .warning-banner {
+            background-color: var(--color-danger-bg);
+            border-left: 4px solid var(--color-danger-red);
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 0.95em;
+            color: #ffcccc;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .warning-banner strong {
+            color: var(--color-danger-red);
+            text-transform: uppercase;
+        }
+        
         .update-note {
             background-color: var(--color-warning-bg);
             border-left: 4px solid var(--color-warning-yellow);
@@ -96,28 +123,82 @@
             color: var(--color-link-hover);
             text-decoration: underline;
         }
-        
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: var(--color-link);
+
+        /* Style Blocks */
+        .rule-block {
+            margin: 20px 0;
+            padding: 15px 20px;
+            background-color: var(--color-section-bg);
+            border-radius: 4px;
+            border-left: 4px solid var(--color-border);
         }
-        
-        .back-link:hover {
-            color: var(--color-link-hover);
-            text-decoration: underline;
-        }
-        
-        hr {
-            min-height: 2px;
-            margin: 25px 0;
-            height: 1px;
-            border: 0;
-            background: var(--color-border);
-        }
-        
-        strong {
+
+        .rule-block h3 {
+            margin-top: 0;
+            font-weight: bold;
+            font-size: 1.1rem;
             color: var(--color-heading);
+        }
+
+        .rule-block ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .rule-block li {
+            margin-bottom: 8px;
+        }
+
+        .severity-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.75em;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .severity-high {
+            background-color: var(--color-severity-high-bg);
+            color: var(--color-severity-high);
+            border: 1px solid var(--color-severity-high);
+        }
+
+        .severity-medium {
+            background-color: var(--color-severity-medium-bg);
+            color: var(--color-severity-medium);
+            border: 1px solid var(--color-severity-medium);
+        }
+
+        .severity-low {
+            background-color: var(--color-severity-low-bg);
+            color: var(--color-severity-low);
+            border: 1px solid var(--color-severity-low);
+        }
+
+        .footnote {
+            font-size: 0.85em;
+            color: var(--color-text-muted);
+            margin: 10px 0;
+        }
+
+        .footer-links {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-border);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            font-size: 0.9em;
+            white-space: nowrap;
         }
         
         @media (max-width: 576px) {
@@ -129,22 +210,172 @@
             h1 {
                 font-size: 1.5rem;
             }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Example</h1>
+        <h1>SandwichStation Hub Rules</h1>
 
-        <div class="update-note">
-            <strong>Last changed: April 5th, 2026</strong>
+        <!-- RED WARNING BANNER -->
+        <div class="warning-banner">
+            <strong>⚠️ NOTICE:</strong> These rules are currently <u>NOT IN EFFECT</u>.</br> They are a draft for review and will be activated at a later date.
         </div>
 
-        <h2>TEST RULE, IGNORE THIS.</h2>
+        <div class="update-note">
+            <strong>Last changed: May 23rd, 2026</strong>
+        </div>
 
-        <p class="legal-text"><strong style="color: #ff0000;">Example rule.</strong></p>
+        <p>This document specifies the rules that need to be followed when listing your community on our server hub. We will try to be as transparent and reasonable as possible when enforcing these rules. If you are not sure whether something is allowed, or you think that something that is not allowed by the current rules should be allowed, feel free to contact us. We will clarify and possibly amend the rules.</p>
 
-        <a href="index.html" class="back-link">← Back to Rules</a>
+        <p>We may change these rules from time to time. When we do, it will be announced.</p>
+
+        <p class="footnote"><strong>Note:</strong> "Hub" effectively refers to the server browser in the launcher.</p>
+
+        <hr>
+
+        <h2>How These Rules Are Applied</h2>
+
+        <div class="rule-block">
+            <h3>Strike System</h3>
+            <p>Breaking some rules will lead to your community receiving one or more <em>strikes</em>. Strikes expire a year after their cause or causes are resolved. If you have <strong>three or more active strikes</strong>, your community will be permanently removed from the hub.</p>
+            <p>You will be allowed to be relisted after enough strikes have expired to put you below three again. You must also have resolved the issue that caused the last strike. Contact us when this is the case, as we may not automatically relist you ourselves.</p>
+        </div>
+
+        <div class="rule-block">
+            <h3>Scope of Rules</h3>
+            <p>These rules apply to any communities that have at least one server listed on the server hub. Our jurisdiction is as far as to remove your server(s) from the hub, and nothing more.</p>
+            <p>We expect you to enforce some of these rules in other places than simply on-hub game servers. For example, 18+ rules may need to be enforced in your Discord or on any off-hub servers you have.</p>
+            <p>We draw the line at what encapsulates a <strong>"community"</strong> on a case-by-case basis. This is based on shared branding, community spaces (e.g., Discord), infrastructure, and staff. For example, if you are a host that merely provides infrastructure for another community you will get some degree of separation from said community. However, severe enough offenses may still make us come to you.</p>
+            <p>When deciding whether an issue is your community's fault we will look at factors such as:</p>
+            <ul>
+                <li>The status of the perpetrators in your community</li>
+                <li>The severity of the issue</li>
+                <li>Whether your community facilitates the issue or punished people for it</li>
+            </ul>
+            <p>Some examples:</p>
+            <ul>
+                <li><strong>Not accountable:</strong> a random player trashtalking another server after being banned there.</li>
+                <li><strong>Accountable:</strong> a staff member perpetuating lies about another server to the point it becomes an issue for them.</li>
+                <li><strong>Accountable:</strong> harassment perpetuated by a large group of members, with staff aware but letting it happen.</li>
+            </ul>
+        </div>
+
+        <div class="rule-block">
+            <h3>Enforcement Procedure</h3>
+            <p>Depending on the scope and nature of the violation in question we will try to contact you privately and resolve things cleanly without a lasting strike. This depends on the kind of offense in question and how cooperative you were to resolve the matter.</p>
+            <p>If we do decide to hand out a strike, we expect you to resolve the problem within a reasonable timeframe. Failing this we may delist your server until the root problem is solved, regardless of total strikes remaining.</p>
+            <p>We expect to be able to contact you about matters of the hub rules. You should have some form of <strong>contact information</strong> on your server: something as simple as a Discord or website link we can follow as a paper trail is good enough. If we are unable to contact you we may be forced to go immediately to delisting.</p>
+        </div>
+
+        <div class="rule-block">
+            <h3>Reporting Violations</h3>
+            <p>The hub rules are primarily enforced in response to reports from the wider SandwichStation community. We do not actively monitor communities or otherwise seek violations, nor do we have the desire to do so.</p>
+            <p>Before sending a report, it's strongly recommended to contact the owner of a given community regarding the violation. Most hub rule violations happen either on accident, or without the community owner's awareness. As such, simply speaking with a community's owner tends to be enough on its own to make a report unnecessary to begin with.</p>
+            <p>To report a hub rule violation, send an email to <a href="mailto:fax@sandwich14.com">fax@sandwich14.com</a>. Be concise, and include as much evidence as feasibly possible. Assume that absolutely nothing is known about a given community. Evidence is usually valued over commentary. Translations for non-English evidence are greatly appreciated, but not required.</p>
+            <p>Generally, responses and updates to reports are not guaranteed, beyond a confirmation that the report has been forwarded to be discussed internally. Please be patient.</p>
+            <p>Reports involving non-public information are always treated as anonymous. Provided evidence will only be published if it is known to be public.</p>
+            <p>Submitting a frivolous report or knowingly including false information may lead to the report being disregarded in its entirety. Do not feign affiliation with a community, do not deliberately provide misleading translations, do not knowingly omit important context, do not harass those you're reporting, and especially don't fabricate evidence outright.</p>
+        </div>
+
+        <hr>
+
+        <h2>The Rules</h2>
+
+        <div class="rule-block">
+            <h3>Section 1 <span class="severity-tag severity-high">High Severity</span></h3>
+            <p>These are the most important rules. Breaking one of them will lead to your community receiving up to three strikes at once. If you have a history of breaking these rules, that alone might be enough to disallow you from listing your server on the hub.</p>
+
+            <h4>1.1 Do not harass, bully, brigade, defame, or doxx players, developers, or communities.</h4>
+            <ul>
+                <li>Sharing IPs or hardware IDs with other server hosts for the purpose of banning is allowed.</li>
+                <li>Some guidance on what "harassment" constitutes: if somebody wants you to stop talking to or about them, you probably should.</li>
+            </ul>
+
+            <h4>1.2 Do not attempt anything that is illegal in the United States of America.</h4>
+            <ul>
+                <li>For example: network attacks such as distributed denial of service or unauthorized access, distribution of malware, phishing.</li>
+                <li>If applicable, we may report you to government authorities.</li>
+                <li>Security vulnerabilities can be reported to our security team by joining our Discord and pinging or talking to someone with the <code>@Wizard</code> or <code>@SS14 Maintainer</code> role.</li>
+                <li>Do not violate software licences of other servers on the hub. This includes re-distributing the source code of secret repos or other license violations.</li>
+            </ul>
+
+            <h4>1.3 Do not abuse the hardware or internet connection of players for purposes that are not directly related to playing the game or collecting telemetry, even with consent.</h4>
+            <ul>
+                <li>For example, do not mine cryptocurrency using the players' hardware.</li>
+                <li>Redirecting the players' connection to another server you control or have permission to redirect to is allowed, as long as you have player consent.</li>
+            </ul>
+
+            <h4>1.4 Servers containing mature elements such as erotic roleplay MUST clearly be marked as being 18+.</h4>
+            <ul>
+                <li>Do this by putting <code>[18+]</code> clearly in the server name somewhere.</li>
+            </ul>
+
+            <h4>1.5 If your server or community as a whole is 18+, you must do due diligence to remove underage players.</h4>
+            <ul>
+                <li>Age checks are not mandatory, though removing players if you learn they are underage is.</li>
+                <li>If you do not have mature themes (rule 1.4) and choose to mark your server as 18+ anyways, you still cannot make exceptions here.</li>
+            </ul>
+
+            <h4>1.6 Server staff members must not have a record of grooming or other predatory behavior.</h4>
+            <ul>
+                <li>This counts for all servers, not just exclusively 18+ servers.</li>
+            </ul>
+
+            <h4>1.7 Do not send false information to the hub.</h4>
+            <ul>
+                <li>For example, do not lie about player count or about what region your server is in.</li>
+            </ul>
+
+            <h4>1.8 Do not attempt to abuse loopholes in the hub rules or circumvent rulings.</h4>
+            <ul>
+                <li>For example: trying to circumvent strikes by making a "new" community.</li>
+            </ul>
+        </div>
+
+        <div class="rule-block">
+            <h3>Section 2 <span class="severity-tag severity-medium">Medium Severity</span></h3>
+            <p>Breaking one of these rules will lead to your community receiving at most one strike.</p>
+
+            <h4>2.1 Keep your server names and descriptions clean.</h4>
+            <ul>
+                <li>They are visible to every player who uses the hub.</li>
+                <li>Keep it safe for work and free from vulgarity.</li>
+                <li>No bigotry, hate speech, discrimination, etc.</li>
+            </ul>
+
+            <h4>2.2 Do not impersonate other servers, developers, or organizations.</h4>
+            <ul>
+                <li>If there is a reasonable way for players to be confused about the affiliations of your server, you're probably breaking this.</li>
+            </ul>
+
+            <h4>2.3 Don't intentionally cause any sort of technical trouble for other communities, servers, the hub, or players.</h4>
+        </div>
+
+        <div class="rule-block">
+            <h3>Section 3 <span class="severity-tag severity-low">Low Severity</span></h3>
+            <p>Breaking these rules will not lead your community to receiving any strikes, unless they are repeatedly broken or not resolved within a reasonable timeframe.</p>
+
+            <h4>3.1 No advertising in the server name.</h4>
+            <p>Server names are for describing a game, server, or community, and <em>not</em> for advertising unrelated services, causes, or other information.</p>
+            <ul>
+                <li>A name consisting of only "Hosted by XXX" is not allowed, because it is advertising a hosting service.</li>
+                <li>A name such as "Foo Station | Now with new and improved X and Y | Running map Z" is allowed, because it describes Foo Station.</li>
+                <li>"Advertisements" as described in this rule <em>are</em> permitted in the server description (inside the foldout).</li>
+            </ul>
+        </div>
+
+        <div class="footer-links">
+            <a href="index.html">← Back to Home</a>
+            <a href="server-rules.html">Server Rules</a>
+            <a href="mailto:fax@sandwich14.com">Contact Us</a>
+        </div>
     </div>
 </body>
 </html>

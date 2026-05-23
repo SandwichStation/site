@@ -162,13 +162,6 @@
             text-align: justify;
         }
         
-        /* This class is now ONLY used for the specific "Legal" paragraphs in UA0 style pages if needed, 
-           but removed from the new section to match the Roboto font of the rest of the page */
-        .legal-text {
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: 0.95em;
-        }
-        
         a {
             color: var(--color-link);
             text-decoration: none;
@@ -298,7 +291,14 @@
         <details open>
             <summary>Strike System</summary>
             <div class="details-content">
-                <p>Breaking some rules will lead to your community receiving one or more <em>strikes</em>. Strikes expire a year after their cause or causes are resolved. If you have <strong>three or more active strikes</strong>, your community will be permanently removed from the hub.</p>
+                <p>Breaking rules will lead to your community receiving strikes based on the severity of the violation:</p>
+                <ul>
+                    <li><strong>Low Severity:</strong> 1 Strike</li>
+                    <li><strong>Medium Severity:</strong> 2 Strikes</li>
+                    <li><strong>High Severity:</strong> 3 Strikes (Instant Delist)</li>
+                </ul>
+                <p>Strikes expire one year after their cause or causes are resolved. If you accumulate <strong>three or more active strikes</strong>, your community will be <strong>permanently removed from the hub</strong>.</p>
+                <p>Breaking a High Severity rule results in an immediate 3-strike penalty, leading to instant delisting without a grace period.</p>
                 <p>You will be allowed to be relisted after enough strikes have expired to put you below three again. You must also have resolved the issue that caused the last strike. Contact us when this is the case, as we may not automatically relist you ourselves.</p>
             </div>
         </details>

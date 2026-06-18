@@ -46,7 +46,7 @@
     ]
   },
   "allowedVersions": [
-    "S1"
+    "0.1.3"
   ],
   "overrideAssets": {
     "WindowIcon": "sandwich/icon.ico",
